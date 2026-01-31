@@ -28,6 +28,11 @@ public class ItemManager
 {
     private List<string> items;
 
+     public ItemManager()
+    {
+        items = new List<string>();
+    }
+
     public void AddItem(string item)
     {
         items.Add(item);
@@ -44,9 +49,21 @@ public class ItemManager
     // Part Two: Implement the RemoveItem method
     // TODO: Implement this method
     public void RemoveItem(string item)
+{
+    if (items.Count == 0)
     {
-        throw new NotImplementedException("RemoveItem method is not implemented yet. Please remove this line and implement this method.");
+        Console.WriteLine("No items to remove.");
+        return;
     }
+
+    bool removed = items.Remove(item);
+
+    if (removed)
+        Console.WriteLine($"Removed: {item}");
+    else
+        Console.WriteLine($"Item not found: {item}");
+}
+
 
     public void ClearAllItems()
     {
@@ -57,6 +74,11 @@ public class ItemManager
 public class ItemManager<T>
 {
     private List<T> items;
+
+    public ItemManager()
+    {
+        items = new List<T>();
+    }
 
     public void AddItem(T item)
     {
