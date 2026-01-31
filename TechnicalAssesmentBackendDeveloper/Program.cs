@@ -30,7 +30,7 @@
     }
 }
 
-public class ItemManager
+public class ItemManager : IItemManager
 {
     private List<string> items;
 
